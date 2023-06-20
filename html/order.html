@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Meal</title>
+    <link rel="shortcut icon" href="../images/ruet.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      var selectedItemForLunch=['Rice','Daul'];
+      var selectedItemForDinner= ['Rice','Daul'];
+      var selectedItemForLunchPrice = [25,0];
+      var selectedItemForDinnerPrice =[25,0];
+    </script>
+    <link rel="stylesheet" href="../css/order.css" />
+    
+  </head>
+  <body>
+    <div class="container-fluid m-0 p-0">
+      <!-- --------------header starts here --------------- -->
+      <header>
+        <div class="header">
+          <div class="nav-bar">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#"
+                  ><img src="../images/ruet.png" alt="RUET Logo"
+                /></a>
+
+                <div class="fun" id="page_header">RUET EATS</div>
+
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  class="collapse navbar-collapse justify-content-end"
+                  id="navbarNav"
+                >
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >Order Meal</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">My Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="./order_history.html">Order History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./log_out.html">Log Out</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- --------------header ends here --------------- -->
+
+      <!-- --------------main starts here --------------- -->
+
+      <main>
+        <div class="main">
+          <div class="select-meal">
+            <div class="row">
+              <div class="row m-0 py-3 first-row">
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-lg w-100"
+                    id="show-date"
+                  >
+                    Date
+                  </button>
+                </div>
+              </div>
+              <div class="row m-0 py-3 second-row">
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-lg w-100"
+                    id="lunch-button"
+                  >
+                    Lunch
+                  </button>
+                </div>
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-lg w-100"
+                    id="dinner-button"
+                  >
+                    Dinner
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- HTML code for the dropdown menu -->
+
+            <div class="row py-3 m-0 third-row">
+              <div class="col">
+                <div class="dropdown d-flex w-100 m-0 p-0">
+                  <button
+                    class="btn btn-secondary dropdown-toggle flex-grow-1 btn-lg hall-name"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="hall_name"
+                  >
+                    Select Hall
+                  </button>
+                  <ul class="dropdown-menu" id="myDropdownMenu">
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Bangabandhu Sheikh Mujibur Rahman Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Deshratna Sheikh Hasina Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Shahid Abdul Hamid Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Shahid Lt. Selim Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Shahid President Ziaur Rahman Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Shahid Shahidul Islam Hall</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Tin Shed Hall</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- show selected hall name -->
+        <div id="showSelectedHallName">
+          <div class="row py-3 m-0 third-row">
+            <div class="col">
+              <div class="row m-0 py-3 first-row">
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-lg w-100 disabled"
+                    id="show-selected-hall-name"
+                  >
+                    Bangabandhu Sheikh Mujibur Rahman Hall
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Items part -->
+
+        <div class="container-fluid menu-items">
+          <div class="row text-center m-0">
+            <h3 class="py-3">Menu Items</h3>
+          </div>
+          <div
+            class="row flex-wrap m-0 justify-content-evenly"
+            id="menu-items-card-holder"
+          ></div>
+        </div>
+
+        
+
+        <!-- ========================================  show  popup  ==================================-->
+        <div id="popup-container" class="px-2">
+          <div id="popup-content">
+            <div class="row"><h2>Add items to menu</h2></div>
+
+            <div class="row d-flex justify-content-between">
+              <div class="col-2 py-2">Name</div>
+              <div class="col mx-0 px-0">
+                <input type="text" id="itemNameToBeAdded" />
+              </div>
+            </div>
+            <div class="row py-2 d-flex justify-content-between">
+              <div class="col-2 mx-0 px-0">Price</div>
+              <div class="col mx-0 px-0">
+                <input type="number" id="itemPriceToBeAdded" />
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col">
+                <input class="w-100" type="file" id="imageInput" accept="image/*">
+              </div>
+              
+            </div>
+            <div class="row py-2">
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-secondary w-100 lunch"
+                  id="add-item-lunch-button"
+                >
+                  
+                </button>
+              </div>
+              
+            </div>
+            <div class="row py-2">
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-danger w-100 submit"
+                  id="close-add-item-popup"
+                >
+                  Close
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-danger w-100 submit"
+                  id="submit-add-item-popup"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="add-element-container">
+          <button id="add-element-button">+</button>
+        </div>
+      </main>
+
+      <!-- ---------------------------main ends here ---------------------------------- -->
+    </div>
+    <script> function addToCartClicked(item_name, meal_name, item_price, hall_name){
+      if(meal_name=='Lunch'){
+        if(hall_name != sessionStorage.getItem('lunch_hall_name')){
+          sessionStorage.setItem('lunch_hall_name', hall_name);
+          selectedItemForLunch= ['Rice','Daul'];
+          selectedItemForLunchPrice = [25,0];
+        }
+        if(item_name.target.id != 'Rice' && item_name.target.id != 'Daul'){
+          selectedItemForLunch.push(item_name.target.id);
+        selectedItemForLunchPrice.push(Number(item_price));
+        }
+        
+        
+        sessionStorage.setItem('selectedItemForLunch', JSON.stringify(selectedItemForLunch));
+        sessionStorage.setItem('selectedItemForLunchPrice', JSON.stringify(selectedItemForLunchPrice));
+        document.getElementById(item_name.target.id).innerHTML='Added To Cart';
+      }else{
+        if(hall_name != sessionStorage.getItem('dinner_hall_name')){
+          sessionStorage.setItem('dinner_hall_name', hall_name);
+          selectedItemForLunch= ['Rice','Daul'];
+          selectedItemForLunchPrice = [25,0];
+        }
+        if(item_name.target.id != 'Rice' && item_name.target.id != 'Daul'){
+          selectedItemForDinner.push(item_name.target.id);
+        selectedItemForDinnerPrice.push(Number(item_price));
+        }
+        
+        sessionStorage.setItem('selectedItemForDinner', JSON.stringify(selectedItemForDinner));
+        sessionStorage.setItem('selectedItemForDinnerPrice', JSON.stringify(selectedItemForDinnerPrice));
+        
+        document.getElementById(item_name.target.id).innerHTML='Added To Cart';
+        
+        
+      }
+    }</script>
+    <script src="bundle.js"></script>
+    <script type="module" src="../js/login.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
